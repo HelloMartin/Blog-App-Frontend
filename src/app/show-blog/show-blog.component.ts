@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ShowBlogComponent implements OnInit {
   blog = {
+    _id: '',
     title: '',
     image: '',
     body: ''

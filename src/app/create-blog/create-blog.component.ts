@@ -1,5 +1,5 @@
 import { DataService } from './../services/data.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
@@ -20,7 +20,7 @@ export class CreateBlogComponent {
     this.service.create(this.blog)
       .subscribe(
         newBlog => {
-          this.router.navigate(['/blogs']);
+          this.router.navigate(['/blogs/' + newBlog.blog._id]);
         }
       )
   }

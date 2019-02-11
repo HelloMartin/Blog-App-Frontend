@@ -46,6 +46,10 @@ import { NavbarComponent } from './navbar/navbar.component';
         component: ShowBlogComponent
       },
       {
+        path: 'blogs/:id/edit',
+        component: EditBlogComponent
+      },
+      {
         path: '**',
         component: NotFoundComponent
       }

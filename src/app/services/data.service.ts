@@ -44,6 +44,13 @@ export class DataService {
         )
     }
 
+    update(resource) {
+      return this.http.post(this.url + '/' + resource._id + '?_method=PUT', JSON.stringify(resource), this.httpOptions)
+      .pipe(
+        map(response => response.json())
+      ) 
+    }
+
     private handleError(error: Response) {
       if (error.status === 400) {
         return throwError(new BadInput(error.json()));

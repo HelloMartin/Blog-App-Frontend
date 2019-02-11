@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.container.main {
+    margin-top: 1em;
+}
+
+.test {
+    width: 180px;
+    height: 250px;
+    object-fit: cover;
+}

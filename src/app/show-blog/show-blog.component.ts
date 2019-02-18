@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-blog',
@@ -17,15 +17,21 @@ export class ShowBlogComponent implements OnInit {
 
   constructor(
     private service: DataService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.route.paramMap
       .subscribe(params => {
-        const id = params.get('id');
+        this.blog._id = params.get('id');
 
-        this.service.get(id)
+        this.service.get(this.blog._id)
           .subscribe(response => this.blog = response.blog);
       })
   }
+
+  deleteBlog() {
+    this.service.delete(this.blog)
+        .subscribe(response => this.router.navigate(['/']));
+    }
 }

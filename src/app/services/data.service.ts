@@ -51,6 +51,14 @@ export class DataService {
       ) 
     }
 
+    delete(resource) {
+      return this.http.post(this.url + '/' + resource._id + '?_method=DELETE', this.httpOptions)
+      .pipe(
+        map(response => response.json())
+      ) 
+    }
+
+
     private handleError(error: Response) {
       if (error.status === 400) {
         return throwError(new BadInput(error.json()));

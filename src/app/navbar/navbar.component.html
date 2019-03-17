@@ -7,10 +7,16 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active current" routerLink="/">Home <span class="sr-only"></span></a>
+          <a class="nav-link" routerLinkActive="active current" routerLink="/">Home<span class="sr-only"></span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active current" routerLink="/blogs/create">New <span class="sr-only"></span></a>
+        <li class="nav-item" *ngIf="service.isLoggedIn()">
+          <a class="nav-link" routerLinkActive="active current" routerLink="/blogs/create">New<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item" *ngIf="!service.isLoggedIn()">
+          <a class="nav-link" routerLinkActive="active current" routerLink="/login">Login<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item" *ngIf="service.isLoggedIn()">
+          <a (click)="service.signOut()" class="nav-link" routerLinkActive="active current" routerLink="/">Logout<span class="sr-only"></span></a>
         </li>
       </ul>
     </div>

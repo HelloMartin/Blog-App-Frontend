@@ -13,6 +13,7 @@ import { EditBlogComponent } from './edit-blog/edit-blog.component';
 import { ShowBlogComponent } from './show-blog/show-blog.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     EditBlogComponent,
     ShowBlogComponent,
     NotFoundComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,10 @@ import { NavbarComponent } from './navbar/navbar.component';
       {
         path: '',
         component: AllBlogsComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
       },
       {
         path: 'blogs',

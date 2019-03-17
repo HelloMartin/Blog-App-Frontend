@@ -24,7 +24,7 @@ export class CreateBlogComponent {
         }
       )
   }
-
+ 
   objectifyForm(form) {
     this.blog = {
       title: form.controls.blogTitle.value,

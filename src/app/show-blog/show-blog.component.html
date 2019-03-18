@@ -6,7 +6,7 @@
     <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-heading">
         <h1>{{ blog.title }}</h1>
-        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+        <h2 class="subheading">{{ blog.subtitle }}</h2>
         <span class="meta">{{ blog.created }}</span>
         </div>
     </div>
@@ -26,7 +26,7 @@
         <div class="col-lg-8 col-md-10 mx-auto">
             <div class="btn-group mr-2" role="group" aria-label="First group">
                 <a class="btn btn-primary" [routerLink]="['/blogs', blog._id, 'edit']">Bearbeiten</a>
-                <a class="btn btn-danger" (click)="deleteBlog()" [class.disabled]="!authservice.isLoggedIn()">Delete</a>
+                <a class="btn btn-primary" (click)="deleteBlog()" [class.disabled]="!authservice.isLoggedIn()">Delete</a>
             </div>
         </div>
     </div>

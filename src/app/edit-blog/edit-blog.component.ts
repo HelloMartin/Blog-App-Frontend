@@ -14,6 +14,7 @@ export class EditBlogComponent implements OnInit {
   blog = {
     _id: '',
     title: '',
+    subtitle: '',
     image: '',
     body: ''
   };
@@ -48,6 +49,7 @@ export class EditBlogComponent implements OnInit {
     this.blog = {
       _id: this.blog._id,
       title: form.controls.blogTitle.value,
+      subtitle: form.controls.blogSubtitle.value,
       image: form.controls.blogImage.value,
       body: form.controls.blogBody.value,
     }

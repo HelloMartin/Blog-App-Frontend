@@ -17,6 +17,21 @@
     </div>
 
     <div class="form-group">
+      <label for="blogSubtitle">Subtitle:</label>
+      <input 
+        ngModel 
+        required
+        name="blogSubtitle" 
+        #blogSubtitle="ngModel" 
+        type="text"
+        class="form-control">
+    </div>
+
+    <div class="alert alert-danger" *ngIf="blogSubtitle.touched && !blogSubtitle.valid">
+      <div *ngIf="blogSubtitle.errors.required">Bitte geben Sie einen Titel ein.</div>
+    </div>
+
+    <div class="form-group">
       <label for="blogImage">Bild:</label>
       <input 
         ngModel

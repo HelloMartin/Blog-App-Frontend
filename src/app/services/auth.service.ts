@@ -13,7 +13,7 @@ import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 })
 
 export class AuthService {
-  private url = 'http://localhost:4300/login';
+  private url = 'http://localhost:4300/user/authenticate';
   constructor(private http: Http) { } 
 
   httpOptions = {

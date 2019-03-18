@@ -1,3 +1,6 @@
+import { DataService } from './services/data.service';
+import { AuthGuard } from './services/auth-guard.service';
+import { AuthService } from './services/auth.service';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -45,7 +48,8 @@ import { LoginComponent } from './login/login.component';
       },
       {
         path: 'blogs/create',
-        component: CreateBlogComponent
+        component: CreateBlogComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'blogs/:id',
@@ -53,7 +57,8 @@ import { LoginComponent } from './login/login.component';
       },
       {
         path: 'blogs/:id/edit',
-        component: EditBlogComponent
+        component: EditBlogComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: '**',
@@ -62,7 +67,10 @@ import { LoginComponent } from './login/login.component';
     ])
   ],
   providers: [
-    { provide: ErrorHandler, useClass: AppErrorHandler }
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+    AuthService,
+    AuthGuard,
+    DataService
   ],
   bootstrap: [AppComponent]
 })

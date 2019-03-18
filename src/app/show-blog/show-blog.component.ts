@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,6 +18,7 @@ export class ShowBlogComponent implements OnInit {
 
   constructor(
     private service: DataService,
+    private authservice: AuthService,
     private route: ActivatedRoute,
     private router: Router) { }
 

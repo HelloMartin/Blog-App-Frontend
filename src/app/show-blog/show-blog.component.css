@@ -1,3 +1,8 @@
+a.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 header.masthead {
     margin-bottom: 50px;
     background: no-repeat center center;

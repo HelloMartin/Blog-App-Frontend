@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth.service';
 import { DataService } from './../services/data.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class AllBlogsComponent implements OnInit {
   blogs: any;
 
-  constructor(private service: DataService) { }
+  constructor(
+    private service: DataService,
+    private authService: AuthService) { }
 
   ngOnInit() {
     this.service.getAll()

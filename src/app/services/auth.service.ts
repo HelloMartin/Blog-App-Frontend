@@ -46,6 +46,15 @@ export class AuthService {
     return tokenNotExpired();
   }
 
+  get currentUser() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return null;
+    }
+
+    return new JwtHelper().decodeToken(token);
+  }
+
   private handleError(error: Response) {
     if (error.status === 400) {
       return throwError(new BadInput(error.json()));

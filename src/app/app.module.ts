@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -33,6 +33,7 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {
         path: '',

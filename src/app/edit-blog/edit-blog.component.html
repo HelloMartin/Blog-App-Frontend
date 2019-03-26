@@ -1,69 +1,60 @@
 <div class="container main">
   <h1 class="bd-title">Edit Blog:</h1>
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
     <div class="form-group">
       <label for="blogTitle">Title:</label>
       <input 
-        ngModel
-        required
-        name="blogTitle" 
-        #blogTitle="ngModel" 
+        formControlName="blogTitle"
+        id="blogTitle"
         type="text"
-        class="form-control"
-        [value]="blog.title">
+        class="form-control">
     </div>
 
-    <div class="alert alert-danger" *ngIf="blogTitle.touched && !blogTitle.valid">
+    <div class="alert alert-danger" *ngIf="blogTitle.touched && blogTitle.invalid">
       <div *ngIf="blogTitle.errors.required">Bitte geben Sie einen Titel ein.</div>
     </div>
 
     <div class="form-group">
       <label for="blogSubtitle">Subtitle:</label>
       <input 
-        ngModel
-        required
-        name="blogSubtitle" 
-        #blogSubtitle="ngModel" 
+        formControlName="blogSubtitle"
+        id="blogSubtitle"
         type="text"
-        class="form-control"
-        [value]="blog.subtitle">
+        class="form-control">
     </div>
 
-    <div class="alert alert-danger" *ngIf="blogSubtitle.touched && !blogSubtitle.valid">
+    <div class="alert alert-danger" *ngIf="blogSubtitle.touched && blogSubtitle.invalid">
       <div *ngIf="blogSubtitle.errors.required">Bitte geben Sie einen Titel ein.</div>
     </div>
 
     <div class="form-group">
       <label for="blogImage">Bild:</label>
       <input 
-        ngModel
-        required
-        name="blogImage" 
-        #blogImage="ngModel" 
+        formControlName="blogImage"
+        id="blogImage"
         type="text"
-        class="form-control"
-        [value]="blog.image">
+        class="form-control">
     </div>
-    
-    <div class="alert alert-danger" *ngIf="blogImage.touched && !blogImage.valid">
-      <div *ngIf="blogImage.errors.required">Bitte geben Sie eine Bild-URL ein.</div>
+
+    <div class="alert alert-danger" *ngIf="blogImage.touched && blogImage.invalid">
+      <div *ngIf="blogImage.errors.required">Bitte geben Sie einen Titel ein.</div>
     </div>
 
     <div class="form-group">
-      <div class="field">
-        <label name="blogBody">Inhalt:</label>
-        <textarea
-          ngModel="{{ blog.body }}"
-          required
-          name="blogBody"
-          #blogBody="ngModel"
-          class="form-control">Hello</textarea>
-      </div>
+      <label for="blogBody">Inhalt:</label>
+      <textarea
+        rows="10" 
+        formControlName="blogBody"
+        id="blogBody"
+        type="text"
+        class="form-control">
+      </textarea>
     </div>
 
-    <div class="alert alert-danger" *ngIf="blogBody.touched && !blogBody.valid">
-      <div *ngIf="blogBody.errors.required">Bitte geben Sie einen Inhalt ein.</div>
+    <div class="alert alert-danger" *ngIf="blogBody.touched && blogBody.invalid">
+      <div *ngIf="blogBody.errors.required">Bitte geben Sie einen Titel ein.</div>
     </div>
+
 
     <button
     class="btn btn-primary"

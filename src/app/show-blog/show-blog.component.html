@@ -22,13 +22,21 @@
             <p>{{ blog.body }}</p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="btn-group mr-2" role="group" aria-label="First group">
-                <a class="btn btn-primary" [routerLink]="['/blogs', blog._id, 'edit']">Bearbeiten</a>
-                <a class="btn btn-primary" (click)="deleteBlog()" [class.disabled]="!authservice.isLoggedIn()">Delete</a>
-            </div>
-        </div>
-    </div>
 </div>
 </article>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <hr>
+        <div class="col-md-12 text-center">
+            <div class="edit-delete-buttons col-lg-8 col-md-10 mx-auto">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <a class="btn btn-primary" [routerLink]="['/blogs', blog._id, 'edit']">Bearbeiten</a>
+                    <a class="btn btn-primary" href="#" (click)="deleteBlog()" *ngIf="authservice.isLoggedIn()">Delete</a>
+                </div>
+            </div>
+            <p class="copyright">Copyright &copy; TBZ BlogApp 2019</p>
+        </div>
+    </div>
+</footer>

@@ -12,13 +12,15 @@ export class ShowBlogComponent implements OnInit {
   blog = {
     _id: '',
     title: '',
+    subtitle: '',
     image: '',
-    body: ''
+    body: '',
+    created: ''
   };
 
   constructor(
     private service: DataService,
-    private authservice: AuthService,
+    public authservice: AuthService,
     private route: ActivatedRoute,
     private router: Router) { }
 
@@ -29,7 +31,7 @@ export class ShowBlogComponent implements OnInit {
 
         this.service.get(this.blog._id)
           .subscribe(response => this.blog = response.blog);
-      })
+      });
   }
 
   deleteBlog() {

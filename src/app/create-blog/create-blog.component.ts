@@ -22,15 +22,15 @@ export class CreateBlogComponent {
         newBlog => {
           this.router.navigate(['/blogs/' + newBlog.blog._id]);
         }
-      )
+      );
   }
- 
+
   objectifyForm(form) {
     this.blog = {
       title: form.controls.blogTitle.value,
       subtitle: form.controls.blogSubtitle.value,
       image: form.controls.blogImage.value,
       body: form.controls.blogBody.value,
-    }
+    };
   }
 }

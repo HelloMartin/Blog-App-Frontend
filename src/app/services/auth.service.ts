@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { map, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { BadInput } from './../common/bad-input';
 import { NotFoundError } from './../common/not-found-error';
 import { AppError } from './../common/app-error';
-import { tokenNotExpired, JwtHelper } from 'angular2-jwt'; 
+import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 
 
 @Injectable({
@@ -14,7 +14,7 @@ import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 
 export class AuthService {
   private url = 'http://localhost:4300/user/authenticate';
-  constructor(private http: Http) { } 
+  constructor(private http: Http) { }
 
   httpOptions = {
     headers: new Headers({
@@ -27,7 +27,7 @@ export class AuthService {
       .pipe(
         catchError(this.handleError),
         map(response => {
-          let result = response.json();
+          const result = response.json();
           if (result && result.token) {
             localStorage.setItem('token', result.token);
             return true;
@@ -35,7 +35,7 @@ export class AuthService {
             return false;
           }
         })
-      )
+      );
   }
 
   signOut() {
@@ -62,6 +62,6 @@ export class AuthService {
     if (error.status === 404) {
       return throwError(new NotFoundError());
     }
-    return throwError(new AppError(error)); 
+    return throwError(new AppError(error));
   }
 }

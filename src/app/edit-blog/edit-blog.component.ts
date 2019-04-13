@@ -11,7 +11,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./edit-blog.component.css']
 })
 export class EditBlogComponent implements OnInit {
-  
+
   constructor(
     private service: DataService,
     private router: Router,
@@ -29,28 +29,28 @@ export class EditBlogComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap
       .subscribe(params => {
-        const id = params.get('id');      
+        const id = params.get('id');
 
         this.service.get(id)
           .subscribe(response => {
             this.blog = response.blog;
-            this.form.get("blogTitle").setValue(this.blog.title);
-            this.form.get("blogSubtitle").setValue(this.blog.subtitle);
-            this.form.get("blogImage").setValue(this.blog.image);
-            this.form.get("blogBody").setValue(this.blog.body);
+            this.form.get('blogTitle').setValue(this.blog.title);
+            this.form.get('blogSubtitle').setValue(this.blog.subtitle);
+            this.form.get('blogImage').setValue(this.blog.image);
+            this.form.get('blogBody').setValue(this.blog.body);
           });
-      })
+      });
   }
 
   onSubmit(form) {
     this.objectifyForm(form);
-    
+
     this.service.update(this.blog)
       .subscribe(
         newBlog => {
           this.router.navigate(['/blogs/' + this.blog._id]);
         }
-      )
+      );
   }
 
   objectifyForm(form) {
@@ -60,7 +60,7 @@ export class EditBlogComponent implements OnInit {
       subtitle: form.controls.blogSubtitle.value,
       image: form.controls.blogImage.value,
       body: form.controls.blogBody.value
-    }
+    };
   }
 
   get blogTitle() {

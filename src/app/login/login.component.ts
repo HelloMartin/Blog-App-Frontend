@@ -1,6 +1,6 @@
 import { AuthService } from './../services/auth.service';
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -17,7 +17,7 @@ export class LoginComponent {
 
   signIn(credentials) {
     this.service.signIn(credentials)
-    .subscribe(response => { 
+    .subscribe(response => {
       if (response) {
         const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
         this.router.navigate([returnUrl || '/']);

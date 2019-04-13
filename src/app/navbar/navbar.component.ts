@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
 
   constructor(
-    private service: AuthService) { }
+    public service: AuthService) { }
 }

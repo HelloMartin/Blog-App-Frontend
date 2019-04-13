@@ -12,7 +12,7 @@ export class AllBlogsComponent implements OnInit {
 
   constructor(
     private service: DataService,
-    private authService: AuthService) { }
+    public authService: AuthService) { }
 
   ngOnInit() {
     this.service.getAll()
